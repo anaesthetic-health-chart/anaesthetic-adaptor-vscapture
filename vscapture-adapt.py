@@ -135,7 +135,8 @@ while 1:
     parts = line.split(',')
 
     # Create properly formatted datetime string
-    parts[44] = '%s %s' % (time.strftime('%Y-%m-%d', time.strptime(parts[0], '%d/%m/%Y')), parts[1])
+    #parts[46] = '%s %s' % (time.strftime('%Y-%m-%d', time.strptime(parts[0], '%d/%m/%Y')), parts[1])
+    parts[46] = '%s %s' % (parts[0], parts[1])
 
     # Start running maps and POSTs
     for m in dataMaps:
