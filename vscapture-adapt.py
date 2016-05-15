@@ -141,7 +141,9 @@ while 1:
     # Start running maps and POSTs
     for m in dataMaps:
       #print 'Building %s map' % m
-      data = {}
+      data = {
+        'episode_id': 1
+      }
       for d in dataMaps[m]['map']:
         if parts[dataMaps[m]['map'][d]] != '-':
           #print '%s: %s' % (d, parts[dataMaps[m]['map'][d]])
@@ -158,7 +160,7 @@ while 1:
       params = urllib.urlencode({'number': 12524, 'type': 'issue', 'action': 'show'})
       headers = {
         "Content-type": "application/json",
-        "Accept": "text/plain"
+        "Accept": "application/json"
       }
 
       print 'sending ' + json.dumps(data, separators=(',',':'))
