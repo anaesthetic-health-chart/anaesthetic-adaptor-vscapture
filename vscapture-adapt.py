@@ -8,6 +8,7 @@ import sys
 import time
 import urlparse
 import json
+import requests
 
 '''
 The following is the CSV columns we receive from VSCapture
@@ -38,7 +39,7 @@ The following is the CSV columns we receive from VSCapture
 24 P2 HR (Central Venous Pressure [P2]) HR
 25 P2 Sys
 26 P2 Dia
-27 P2Mean 
+27 P2Mean
 28 PPeak - Peak Airway Pressure (PPeak)
 29 PPlat - Plateau Pressure (PPlat)
 30 TV Exp - Expiratory (Exp) Tidal Volume (TV)
@@ -46,7 +47,7 @@ The following is the CSV columns we receive from VSCapture
 32 Peep Positive End Expiratory Pressure (Peep)
 33 MV Exp minute volume
 34 Compliance
-35 RR 
+35 RR
 36 ST II(mm) ecg stuff
 37 ST V5(mm)
 38 ST aVL(mm)
