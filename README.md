@@ -7,6 +7,11 @@ This little Python script will open the passed CSV file containing the CSV
 output from the VSCapture program, parse the data, and then pass it to the
 anaesthetic health chart app using the REST API.
 
+first:
+```bash
+pip install -r requirements.txt
+```
+
 ```bash
 Usage: %s <VSCAPTURE_CSV> <HEALTH_CHART_BASE_URL>
   <VSCAPTURE_CSV> The CSV file being written to by VSCapture
