@@ -3,6 +3,7 @@
 import httplib, urllib
 import time
 import os.path
+import requests
 import sys
 import time
 import urlparse
@@ -165,9 +166,5 @@ while 1:
 
       print 'sending ' + json.dumps(data, separators=(',',':'))
 
-      conn = httplib.HTTPSConnection(urlBits.netloc)
-      conn.request("POST", url, json.dumps(data), headers)
-      response = conn.getresponse()
+      response = requests.post(url, data=json.dumps(data, separators=(',',':')), headers=headers)
       print response.status, response.reason
-      data = response.read()
-      conn.close()
