@@ -3,6 +3,7 @@
 import httplib, urllib
 import time
 import os.path
+import requests
 import sys
 import time
 import urlparse
@@ -166,5 +167,5 @@ while 1:
 
       print 'sending ' + json.dumps(data, separators=(',',':'))
 
-      response = requests.post(url, data=json.dumps(data), headers=headers)
-      print response.status_code
+      response = requests.post(url, data=json.dumps(data, separators=(',',':')), headers=headers)
+      print response.status, response.reason
