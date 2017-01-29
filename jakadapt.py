@@ -99,13 +99,15 @@ dataMaps = {
 }
 
 if len(sys.argv) != 3:
-  print "Usage: %s <VSCAPTURE_CSV> <HEALTH_CHART_BASE_URL>"
+  print "Usage: %s <VSCAPTURE_CSV> <HEALTH_CHART_BASE_URL> <AUTH_TOKEN>"
   print "  <VSCAPTURE_CSV> The CSV file being written to by VSCapture"
   print "  <HEALTH_CHART_BASE_URL> Base URL of the health chart to send the data to"
+  print "  <AUTH_TOKEN> Django Token Auth, Token for REST api"
   sys.exit(1)
 
 filename = sys.argv[1]
 baseUrl = sys.argv[2]
+token = sys.argv[3]
 
 # Check file exists and open file
 if not os.path.isfile(filename):
@@ -161,7 +163,8 @@ while 1:
       params = urllib.urlencode({'number': 12524, 'type': 'issue', 'action': 'show'})
       headers = {
         "Content-type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": "Token " + token
       }
 
       print 'sending ' + json.dumps(data, separators=(',',':'))
